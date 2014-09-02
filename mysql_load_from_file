@@ -1,0 +1,8 @@
+nohup /usr/bin/mysql-ib -p  -e "LOAD DATA INFILE 'aa' INTO TABLE trend_campaign FIELDS TERMINATED BY '|' ;" &
+
+nohup /usr/bin/mysql-ib -p  -e "LOAD DATA INFILE 'aa' INTO TABLE trend_campaign FIELDS TERMINATED BY '|' "; &
+
+
+/data2/infinidb/data/bulk/data/import/trend_campaign.tbl
+
+LOAD DATA INFILE '/data2/infinidb/data/bulk/data/import/ibdata.csv' INTO TABLE trend_campaign FIELDS TERMINATED BY '|';

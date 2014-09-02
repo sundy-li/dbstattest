@@ -1,0 +1,233 @@
+{
+  "took" : 5,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 5,
+    "successful" : 5,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 19,
+    "max_score" : 1.0,
+    "hits" : [ {
+      "_index" : "estest",
+      "_type" : "trend_campaign",
+      "_id" : "ZfhWP9r5SxGpuY1En4kJIQ",
+      "_score" : 1.0,
+      "_source":{"b_active_visitors":4088,"b_bounces":5815,"b_click":2207,"b_clicks":1602,"b_inclick":1669,"b_input":8147,"b_ips":2580,"b_loadtime":343,"b_logins":4009,"b_new_pageviews":640,"b_new_visitors":3140,"b_outclick":7272,"b_pagepixels":7145,"b_pageviews":6291,"b_regs":4330,"b_reserve0":5884,"b_reserve1":7119,"b_reserve2":2922,"b_reserve3":8435,"b_reserve4":1673,"b_sessions":786,"b_staytime":7262,"b_stop":6462,"b_visitors":3484,"campaign_id":5702,"channel_id":6310,"channel_type_id":2734,"clicks":8937,"cost":0.5,"cost_over":0.5,"cost_over2":0.5,"creative_id":5411,"date":2277,"hour":0,"impressions":5759,"insights":91,"ips":6683,"medium_id":3106,"new_impressions":1128,"new_visitors":2348,"package_id":7684,"pagepixels":3550,"platform_id":7142,"policy_id":2988,"product_id":8191,"reserve0":5882,"reserve1":6480,"reserve2":2257,"reserve3":1184,"reserve4":9853,"reviews":6491,"spot_channel_id":1862,"spot_id":3831049,"spot_screen_id":2578,"spot_size_id":4279,"user_id":3089,"visitors":2926,"whisky_id":6035}
+    }, {
+      "_index" : "estest",
+      "_type" : "trend_campaign",
+      "_id" : "PDhcHM2mQE25WGIFeMqDbA",
+      "_score" : 1.0,
+      "_source":{"b_active_visitors":8663,"b_bounces":5363,"b_click":6982,"b_clicks":3788,"b_inclick":4616,"b_input":5979,"b_ips":1109,"b_loadtime":5194,"b_logins":8681,"b_new_pageviews":4494,"b_new_visitors":8937,"b_outclick":8282,"b_pagepixels":9123,"b_pageviews":4433,"b_regs":9515,"b_reserve0":5529,"b_reserve1":8911,"b_reserve2":5909,"b_reserve3":4918,"b_reserve4":5965,"b_sessions":2566,"b_staytime":6983,"b_stop":1149,"b_visitors":6930,"campaign_id":4048,"channel_id":8500,"channel_type_id":8274,"clicks":4382,"cost":0.5,"cost_over":0.5,"cost_over2":0.5,"creative_id":548,"date":4048,"hour":20,"impressions":5408,"insights":4879,"ips":157,"medium_id":8395,"new_impressions":8582,"new_visitors":9842,"package_id":3541,"pagepixels":4036,"platform_id":8274,"policy_id":2569,"product_id":3677,"reserve0":2325,"reserve1":1022,"reserve2":6263,"reserve3":8970,"reserve4":788,"reviews":9225,"spot_channel_id":3795,"spot_id":6288809,"spot_screen_id":5048,"spot_size_id":1499,"user_id":4051,"visitors":3213,"whisky_id":3462}
+    }, {
+      "_index" : "estest",
+      "_type" : "trend_campaign",
+      "_id" : "sW6gmA0OS8yIHjjhPMd7kQ",
+      "_score" : 1.0,
+      "_source":{"b_active_visitors":839,"b_bounces":7897,"b_click":1165,"b_clicks":6850,"b_inclick":5662,"b_input":439,"b_ips":877,"b_loadtime":3526,"b_logins":6736,"b_new_pageviews":7701,"b_new_visitors":4879,"b_outclick":4871,"b_pagepixels":4119,"b_pageviews":2957,"b_regs":9516,"b_reserve0":7079,"b_reserve1":661,"b_reserve2":3704,"b_reserve3":8220,"b_reserve4":1880,"b_sessions":2585,"b_staytime":8835,"b_stop":6882,"b_visitors":9332,"campaign_id":2277,"channel_id":5813,"channel_type_id":3065,"clicks":5144,"cost":0.5,"cost_over":0.5,"cost_over2":0.5,"creative_id":7421,"date":4048,"hour":7,"impressions":4411,"insights":3431,"ips":6065,"medium_id":3681,"new_impressions":7582,"new_visitors":3354,"package_id":6590,"pagepixels":2121,"platform_id":1931,"policy_id":8806,"product_id":4886,"reserve0":1077,"reserve1":8560,"reserve2":2920,"reserve3":3258,"reserve4":2213,"reviews":3138,"spot_channel_id":4773,"spot_id":5536484,"spot_screen_id":5310,"spot_size_id":9373,"user_id":6362,"visitors":5434,"whisky_id":5653}
+    }, {
+      "_index" : "estest",
+      "_type" : "trend_campaign",
+      "_id" : "WO2BtpLdThG9s5A8QiuBcQ",
+      "_score" : 1.0,
+      "_source":{"b_active_visitors":6098,"b_bounces":4974,"b_click":109,"b_clicks":4922,"b_inclick":5971,"b_input":904,"b_ips":2998,"b_loadtime":4357,"b_logins":87,"b_new_pageviews":4890,"b_new_visitors":9262,"b_outclick":7846,"b_pagepixels":8771,"b_pageviews":6596,"b_regs":9038,"b_reserve0":8272,"b_reserve1":8160,"b_reserve2":4108,"b_reserve3":8822,"b_reserve4":5967,"b_sessions":1604,"b_staytime":9573,"b_stop":1655,"b_visitors":5494,"campaign_id":4425,"channel_id":6090,"channel_type_id":2846,"clicks":8434,"cost":0.5,"cost_over":0.5,"cost_over2":0.5,"creative_id":8794,"date":7461,"hour":0,"impressions":4956,"insights":4205,"ips":1076,"medium_id":8581,"new_impressions":5422,"new_visitors":1381,"package_id":3237,"pagepixels":3897,"platform_id":7803,"policy_id":3066,"product_id":9624,"reserve0":4432,"reserve1":6116,"reserve2":7433,"reserve3":6595,"reserve4":243,"reviews":848,"spot_channel_id":4055,"spot_id":5480156,"spot_screen_id":2618,"spot_size_id":7906,"user_id":312,"visitors":1241,"whisky_id":978}
+    }, {
+      "_index" : "estest",
+      "_type" : "trend_campaign",
+      "_id" : "2Yigzb98Rb-6vbJ3aGQh3w",
+      "_score" : 1.0,
+      "_source":{"b_active_visitors":8518,"b_bounces":4461,"b_click":1403,"b_clicks":3776,"b_inclick":3892,"b_input":8685,"b_ips":9545,"b_loadtime":4404,"b_logins":9183,"b_new_pageviews":2479,"b_new_visitors":6649,"b_outclick":6545,"b_pagepixels":9963,"b_pageviews":5473,"b_regs":489,"b_reserve0":5124,"b_reserve1":6023,"b_reserve2":7813,"b_reserve3":3178,"b_reserve4":6114,"b_sessions":1064,"b_staytime":5216,"b_stop":3334,"b_visitors":2448,"campaign_id":9682,"channel_id":6451,"channel_type_id":8938,"clicks":2873,"cost":0.5,"cost_over":0.5,"cost_over2":0.5,"creative_id":7744,"date":9981,"hour":12,"impressions":9155,"insights":8895,"ips":4899,"medium_id":6867,"new_impressions":1501,"new_visitors":7666,"package_id":8107,"pagepixels":2196,"platform_id":9432,"policy_id":239,"product_id":9010,"reserve0":7671,"reserve1":3581,"reserve2":6367,"reserve3":5416,"reserve4":4385,"reviews":1130,"spot_channel_id":3456,"spot_id":7572148,"spot_screen_id":3669,"spot_size_id":3675,"user_id":7507,"visitors":8243,"whisky_id":3779}
+    }, {
+      "_index" : "estest",
+      "_type" : "trend_campaign",
+      "_id" : "OYfYybQqT2yiFrhi4iHQGQ",
+      "_score" : 1.0,
+      "_source":{"b_active_visitors":4296,"b_bounces":6042,"b_click":8034,"b_clicks":2414,"b_inclick":7436,"b_input":1095,"b_ips":1794,"b_loadtime":6444,"b_logins":8991,"b_new_pageviews":5094,"b_new_visitors":8243,"b_outclick":4875,"b_pagepixels":6008,"b_pageviews":6827,"b_regs":3771,"b_reserve0":9253,"b_reserve1":1924,"b_reserve2":8919,"b_reserve3":5135,"b_reserve4":8977,"b_sessions":3885,"b_staytime":8891,"b_stop":476,"b_visitors":1131,"campaign_id":4425,"channel_id":6189,"channel_type_id":2135,"clicks":3206,"cost":0.5,"cost_over":0.5,"cost_over2":0.5,"creative_id":4744,"date":3528,"hour":11,"impressions":835,"insights":4982,"ips":5955,"medium_id":3690,"new_impressions":4722,"new_visitors":478,"package_id":4098,"pagepixels":1540,"platform_id":1306,"policy_id":2700,"product_id":9639,"reserve0":4341,"reserve1":1505,"reserve2":4439,"reserve3":8717,"reserve4":6567,"reviews":5059,"spot_channel_id":8799,"spot_id":8948289,"spot_screen_id":7811,"spot_size_id":7651,"user_id":5762,"visitors":5572,"whisky_id":8163}
+    }, {
+      "_index" : "estest",
+      "_type" : "trend_campaign",
+      "_id" : "RwsqmB3rSduQ5iLAg3s_Fg",
+      "_score" : 1.0,
+      "_source":{"b_active_visitors":6505,"b_bounces":8747,"b_click":8878,"b_clicks":925,"b_inclick":6276,"b_input":8555,"b_ips":9668,"b_loadtime":3097,"b_logins":3877,"b_new_pageviews":9848,"b_new_visitors":4848,"b_outclick":9131,"b_pagepixels":8969,"b_pageviews":9068,"b_regs":7569,"b_reserve0":4382,"b_reserve1":2905,"b_reserve2":3566,"b_reserve3":9238,"b_reserve4":9414,"b_sessions":1574,"b_staytime":5304,"b_stop":5780,"b_visitors":1755,"campaign_id":5702,"channel_id":9204,"channel_type_id":4936,"clicks":2331,"cost":0.5,"cost_over":0.5,"cost_over2":0.5,"creative_id":9606,"date":2277,"hour":23,"impressions":9793,"insights":2407,"ips":6632,"medium_id":5580,"new_impressions":3853,"new_visitors":2753,"package_id":1232,"pagepixels":2019,"platform_id":8007,"policy_id":3098,"product_id":1788,"reserve0":7574,"reserve1":831,"reserve2":5755,"reserve3":5391,"reserve4":7409,"reviews":6369,"spot_channel_id":5927,"spot_id":7594670,"spot_screen_id":548,"spot_size_id":6727,"user_id":4838,"visitors":9961,"whisky_id":1004}
+    }, {
+      "_index" : "estest",
+      "_type" : "trend_campaign",
+      "_id" : "FsDycafjRF6aEg9ElPHLeA",
+      "_score" : 1.0,
+      "_source":{"b_active_visitors":9470,"b_bounces":6144,"b_click":1462,"b_clicks":9799,"b_inclick":3686,"b_input":551,"b_ips":4435,"b_loadtime":5998,"b_logins":4878,"b_new_pageviews":8433,"b_new_visitors":9614,"b_outclick":4232,"b_pagepixels":4934,"b_pageviews":9552,"b_regs":5247,"b_reserve0":1587,"b_reserve1":4952,"b_reserve2":1595,"b_reserve3":1782,"b_reserve4":9525,"b_sessions":1258,"b_staytime":4946,"b_stop":1724,"b_visitors":9900,"campaign_id":4425,"channel_id":3462,"channel_type_id":5038,"clicks":1949,"cost":0.5,"cost_over":0.5,"cost_over2":0.5,"creative_id":3862,"date":9682,"hour":2,"impressions":507,"insights":8131,"ips":3525,"medium_id":5750,"new_impressions":9892,"new_visitors":7164,"package_id":2878,"pagepixels":6249,"platform_id":9964,"policy_id":854,"product_id":14,"reserve0":62,"reserve1":9217,"reserve2":1025,"reserve3":286,"reserve4":3960,"reviews":4678,"spot_channel_id":3655,"spot_id":8831112,"spot_screen_id":4631,"spot_size_id":3399,"user_id":9087,"visitors":132,"whisky_id":7199}
+    }, {
+      "_index" : "estest",
+      "_type" : "trend_campaign",
+      "_id" : "M4iwROdYQ3yCRXE0soK0aQ",
+      "_score" : 1.0,
+      "_source":{"b_active_visitors":3767,"b_bounces":5705,"b_click":6223,"b_clicks":5136,"b_inclick":2955,"b_input":8106,"b_ips":8377,"b_loadtime":2071,"b_logins":6260,"b_new_pageviews":9543,"b_new_visitors":2196,"b_outclick":1024,"b_pagepixels":2013,"b_pageviews":7100,"b_regs":913,"b_reserve0":1223,"b_reserve1":5171,"b_reserve2":6376,"b_reserve3":9826,"b_reserve4":8475,"b_sessions":7305,"b_staytime":4461,"b_stop":2551,"b_visitors":398,"campaign_id":4048,"channel_id":8790,"channel_type_id":951,"clicks":9853,"cost":0.5,"cost_over":0.5,"cost_over2":0.5,"creative_id":1579,"date":4425,"hour":1,"impressions":3051,"insights":4993,"ips":9581,"medium_id":8611,"new_impressions":9993,"new_visitors":7480,"package_id":5336,"pagepixels":8510,"platform_id":9287,"policy_id":5619,"product_id":3249,"reserve0":6314,"reserve1":4005,"reserve2":6543,"reserve3":4765,"reserve4":514,"reviews":7235,"spot_channel_id":7581,"spot_id":3117391,"spot_screen_id":1613,"spot_size_id":1479,"user_id":2557,"visitors":9888,"whisky_id":3484}
+    }, {
+      "_index" : "estest",
+      "_type" : "trend_campaign",
+      "_id" : "e76cHkiVR72b-PpNAnSsqw",
+      "_score" : 1.0,
+      "_source":{"b_active_visitors":3813,"b_bounces":7177,"b_click":8016,"b_clicks":8573,"b_inclick":4582,"b_input":8630,"b_ips":2155,"b_loadtime":7816,"b_logins":5384,"b_new_pageviews":1270,"b_new_visitors":4849,"b_outclick":7677,"b_pagepixels":4477,"b_pageviews":5336,"b_regs":9533,"b_reserve0":3920,"b_reserve1":9188,"b_reserve2":8960,"b_reserve3":8859,"b_reserve4":4699,"b_sessions":1853,"b_staytime":5043,"b_stop":9425,"b_visitors":6981,"campaign_id":4425,"channel_id":1171,"channel_type_id":2752,"clicks":5680,"cost":0.5,"cost_over":0.5,"cost_over2":0.5,"creative_id":7143,"date":4937,"hour":10,"impressions":3515,"insights":898,"ips":6215,"medium_id":3327,"new_impressions":6980,"new_visitors":6724,"package_id":4633,"pagepixels":4388,"platform_id":4992,"policy_id":5527,"product_id":6135,"reserve0":4607,"reserve1":2137,"reserve2":2961,"reserve3":9292,"reserve4":6691,"reviews":3909,"spot_channel_id":3869,"spot_id":4195550,"spot_screen_id":4496,"spot_size_id":8028,"user_id":97,"visitors":861,"whisky_id":3755}
+    } ]
+  },
+  "aggregations" : {
+    "group_by_campaign_id" : {
+      "buckets" : [ {
+        "key" : 4425,
+        "key_as_string" : "4425",
+        "doc_count" : 8,
+        "b_regs" : {
+          "value" : 49004.0
+        },
+        "impressions" : {
+          "value" : 28398.0
+        },
+        "clicks" : {
+          "value" : 42449.0
+        },
+        "date" : {
+          "value" : 6828.75
+        },
+        "b_pageviews" : {
+          "value" : 47365.0
+        },
+        "cost" : {
+          "value" : 4.0
+        }
+      }, {
+        "key" : 4048,
+        "key_as_string" : "4048",
+        "doc_count" : 3,
+        "b_regs" : {
+          "value" : 13891.0
+        },
+        "impressions" : {
+          "value" : 17325.0
+        },
+        "clicks" : {
+          "value" : 18081.0
+        },
+        "date" : {
+          "value" : 6051.666666666667
+        },
+        "b_pageviews" : {
+          "value" : 21491.0
+        },
+        "cost" : {
+          "value" : 1.5
+        }
+      }, {
+        "key" : 5702,
+        "key_as_string" : "5702",
+        "doc_count" : 2,
+        "b_regs" : {
+          "value" : 11899.0
+        },
+        "impressions" : {
+          "value" : 15552.0
+        },
+        "clicks" : {
+          "value" : 11268.0
+        },
+        "date" : {
+          "value" : 2277.0
+        },
+        "b_pageviews" : {
+          "value" : 15359.0
+        },
+        "cost" : {
+          "value" : 1.0
+        }
+      }, {
+        "key" : 9682,
+        "key_as_string" : "9682",
+        "doc_count" : 1,
+        "b_regs" : {
+          "value" : 489.0
+        },
+        "impressions" : {
+          "value" : 9155.0
+        },
+        "clicks" : {
+          "value" : 2873.0
+        },
+        "date" : {
+          "value" : 9981.0
+        },
+        "b_pageviews" : {
+          "value" : 5473.0
+        },
+        "cost" : {
+          "value" : 0.5
+        }
+      }, {
+        "key" : 2277,
+        "key_as_string" : "2277",
+        "doc_count" : 2,
+        "b_regs" : {
+          "value" : 15947.0
+        },
+        "impressions" : {
+          "value" : 7443.0
+        },
+        "clicks" : {
+          "value" : 13662.0
+        },
+        "date" : {
+          "value" : 6865.0
+        },
+        "b_pageviews" : {
+          "value" : 11617.0
+        },
+        "cost" : {
+          "value" : 1.0
+        }
+      }, {
+        "key" : 3528,
+        "key_as_string" : "3528",
+        "doc_count" : 2,
+        "b_regs" : {
+          "value" : 7712.0
+        },
+        "impressions" : {
+          "value" : 5245.0
+        },
+        "clicks" : {
+          "value" : 17028.0
+        },
+        "date" : {
+          "value" : 6605.0
+        },
+        "b_pageviews" : {
+          "value" : 11728.0
+        },
+        "cost" : {
+          "value" : 1.0
+        }
+      }, {
+        "key" : 9981,
+        "key_as_string" : "9981",
+        "doc_count" : 1,
+        "b_regs" : {
+          "value" : 3384.0
+        },
+        "impressions" : {
+          "value" : 4565.0
+        },
+        "clicks" : {
+          "value" : 1282.0
+        },
+        "date" : {
+          "value" : 9682.0
+        },
+        "b_pageviews" : {
+          "value" : 2992.0
+        },
+        "cost" : {
+          "value" : 0.5
+        }
+      } ]
+    }
+  }
+}

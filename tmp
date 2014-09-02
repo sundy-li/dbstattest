@@ -1,0 +1,1 @@
+/usr/bin/mysql-ib myib -proot -e "load data infile '/data2/infinidb/data/bulk/data/import/1.csv' into table trend_campaign FIELDS TERMINATED by '|'"
