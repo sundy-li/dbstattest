@@ -5,11 +5,12 @@ import (
 )
 
 const (
-    es         = "es"
-    mysql      = "mysql"
-    infinidb   = "infinidb"
-    infobright = "infobright"
-    memsql     = "memsql"
+    es              = "es"
+    infinidb_single = "infinidb_single"
+    mysql           = "mysql"
+    infinidb        = "infinidb"
+    infobright      = "infobright"
+    memsql          = "memsql"
 )
 
 const (
@@ -44,6 +45,10 @@ func GetClientGen(dbType string) func() DbClient {
     case infobright:
         f = func() DbClient {
             return NewInfoBrightClient()
+        }
+    case memsql:
+        f = func() DbClient {
+            return NewMemsqlDBClient()
         }
     default:
         fmt.Printf("unknown dbType: %s", dbType)

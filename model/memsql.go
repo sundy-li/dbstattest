@@ -10,7 +10,7 @@ import (
 var (
     MemsqlDBhost     = "192.168.10.60"
     MemsqlDBport     = 3309
-    MemsqlDBdatabase = "myMemsqldb"
+    MemsqlDBdatabase = "test"
     MemsqlDBusername = "root"
     MemsqlDBpassword = ""
 )
@@ -49,6 +49,6 @@ func (c *MemsqlDB) StopDB() error {
 
 func (c *MemsqlDB) LoadData(fileName string) error {
     str := fmt.Sprintf("load data infile '%s' into table trend_campaign FIELDS TERMINATED by '|'", fileName)
-    _, err := c.db.Exec(str)
+    _, err := c.db.ExecErr(str)
     return err
 }
