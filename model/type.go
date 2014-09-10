@@ -5,11 +5,11 @@ import (
 )
 
 const (
-    es              = "es"
-    mysql           = "mysql"
-    infinidb        = "infinidb"
-    infinidb_single = "infinidb_single"
-    infobright      = "infobright"
+    es         = "es"
+    mysql      = "mysql"
+    infinidb   = "infinidb"
+    infobright = "infobright"
+    memsql     = "memsql"
 )
 
 const (
