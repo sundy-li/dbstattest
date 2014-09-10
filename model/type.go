@@ -63,6 +63,15 @@ func TestQuery(client DbClient, testType int) (err error) {
         _, err = client.Query2(GenCampIds(count), date0, date1)
     case Query3:
         _, err = client.Query3(GenCampIds(count), GenHours(count2))
+    case Query4:
+        _, err = client.Query4(GenCampIds(count), GenCampIds(count), GenCampIds(count))
+    case Query5:
+        _, err = client.Query5(GenCampIds(count))
+    case Query6:
+        _, err = client.Query6(GenCampIds(count), GenCampIds(count), GenCampIds(count))
+    case Query7:
+        date0, date1 := GenDateRange()
+        _, err = client.Query7(GenCampIds(count), date0, date1)
     default:
         panic(fmt.Sprintf("wrong test type: %d\n", testType))
     }
