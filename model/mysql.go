@@ -118,10 +118,10 @@ var querySql4 = "SELECT %s, campaign_id, product_id, spot_id, whisky_id FROM tre
 var querySql5 = "SELECT campaign_id, date, hour, ips, impressions, new_impressions FROM trend_campaign WHERE campaign_id IN(%s) GROUP BY campaign_id, date, hour LIMIT 50 OFFSET 300"
 
 // 汇总数据
-var querySql6 = "SELECT %s WHERE campaign_id IN (%s) AND product_id IN(%s) AND spot_id IN (%s) GROUP BY campaign_id, product_id, spot_id"
+var querySql6 = "SELECT %s FROM trend_campaign WHERE campaign_id IN (%s) AND product_id IN(%s) AND spot_id IN (%s) GROUP BY campaign_id, product_id, spot_id"
 
 // 数量
-var querySql7 = "SELECT count(*) WHERE campaign_id IN (%s) AND date >= %d AND date <= %d"
+var querySql7 = "SELECT count(*) FROM trend_campaign WHERE campaign_id IN (%s) AND date >= %d AND date <= %d"
 
 var types = []FieldType{INT, INT, INT, INT, INT, INT}
 
@@ -262,7 +262,7 @@ func (c *MysqlClient) Query7(cids []int, date0, date1 int) (rows interface{}, er
     }
     idsStr = strings.TrimSuffix(idsStr, ",")
 
-    sql := fmt.Sprintf(querySql2, idsStr, date0, date1)
+    sql := fmt.Sprintf(querySql7, idsStr, date0, date1)
     return c.doQuery(sql)
 }
 
