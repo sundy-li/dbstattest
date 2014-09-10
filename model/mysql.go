@@ -65,6 +65,9 @@ func NewMysqlClient() *MysqlClient {
 }
 
 var selectFields = []string{
+    "cost",
+    "cost_over",
+    "cost_over2",
     "ips",
     "impressions",
     "new_impressions",
@@ -72,9 +75,6 @@ var selectFields = []string{
     "new_visitors",
     "reviews",
     "insights",
-    "cost",
-    "cost_over",
-    "cost_over2",
     "pagepixels",
     "clicks",
     "spot_screen_id",
@@ -100,46 +100,28 @@ var selectFields = []string{
     "b_new_pageviews",
 }
 
-var fieldTypes = []FieldType{
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    FLOAT64,
-    FLOAT64,
-    FLOAT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-    INT64,
-}
-
 var dataCountSql = "SELECT count(*) from trend_campaign"
-var querySql = "SELECT %s, campaign_id FROM trend_campaign WHERE campaign_id IN (%s) GROUP BY campaign_id LIMIT 20 OFFSET 1000"
+
+// 全指标-IN条件-Limit
+var querySql = "SELECT %s, campaign_id FROM trend_campaign WHERE campaign_id IN (%s) GROUP BY campaign_id LIMIT 20 OFFSET 0"
+
+// 全指标-IN+Range条件-Limit
 var querySql2 = "SELECT %s,campaign_id FROM trend_campaign WHERE campaign_id IN (%s) AND date >= %d AND date <= %d GROUP BY campaign_id LIMIT 20 OFFSET 0"
+
+// 全指标-IN+IN条件-汇总结果Range条件-Order-Limit+Offset
 var querySql3 = "SELECT %s,campaign_id FROM trend_campaign WHERE campaign_id IN (%s) AND hour IN (%s) GROUP BY campaign_id, hour HAVING SUM(cost) > 100  ORDER BY SUM(impressions) desc LIMIT 20 OFFSET 100"
+
+// 全指标-多维度-3个IN条件-GroupBy四个维度-Limit+Offset
+var querySql4 = "SELECT %s, campaign_id, product_id, spot_id, whisky_id FROM trend_campaign WHERE campaign_id IN (%s) AND product_id IN(%s) AND spot_id IN (%s) GROUP BY campaign_id, product_id, spot_id, whisky_id LIMIT 50 OFFSET 400"
+
+// 三个指标-Group by三个维度
+var querySql5 = "SELECT campaign_id, date, hour, ips, impressions, new_impressions FROM trend_campaign WHERE campaign_id IN(%s) GROUP BY campaign_id, date, hour LIMIT 50 OFFSET 300"
+
+// 汇总数据
+var querySql6 = "SELECT %s WHERE campaign_id IN (%s) AND product_id IN(%s) AND spot_id IN (%s) GROUP BY campaign_id, product_id, spot_id"
+
+// 数量
+var querySql7 = "SELECT count(*) WHERE campaign_id IN (%s) AND date >= %d AND date <= %d"
 
 var types = []FieldType{INT, INT, INT, INT, INT, INT}
 
@@ -161,14 +143,7 @@ func (c *MysqlClient) Query(cids []int) (rows interface{}, err error) {
     idsStr = strings.TrimSuffix(idsStr, ",")
 
     sql := fmt.Sprintf(querySql, selectStr, idsStr)
-    if Debug {
-        fmt.Println(sql)
-    }
-    // fmt.Println("sql ", sql)
-    res := c.db.Query(sql)
-
-    // fmt.Println(len(res.Rows))
-    return res.Rows, res.Error
+    return c.doQuery(sql)
 }
 
 func (c *MysqlClient) Query2(cids []int, date0, date1 int) (rows interface{}, err error) {
@@ -185,13 +160,7 @@ func (c *MysqlClient) Query2(cids []int, date0, date1 int) (rows interface{}, er
     idsStr = strings.TrimSuffix(idsStr, ",")
 
     sql := fmt.Sprintf(querySql2, selectStr, idsStr, date0, date1)
-    if Debug {
-        fmt.Println(sql)
-    }
-    // fmt.Println("sql ", sql)
-    res := c.db.Query(sql)
-    // fmt.Println(len(res.Rows))
-    return res.Rows, res.Error
+    return c.doQuery(sql)
 }
 
 func (c *MysqlClient) Query3(cids []int, hours []int) (rows interface{}, err error) {
@@ -214,11 +183,93 @@ func (c *MysqlClient) Query3(cids []int, hours []int) (rows interface{}, err err
     hourStr = strings.TrimSuffix(hourStr, ",")
 
     sql := fmt.Sprintf(querySql3, selectStr, idsStr, hourStr)
+    return c.doQuery(sql)
+}
+
+func (c *MysqlClient) Query4(cids1 []int, cids2 []int, cids3 []int) (rows interface{}, err error) {
+    selectStr := ""
+    for _, f := range selectFields {
+        selectStr += "SUM(`" + f + "`),"
+    }
+    selectStr = strings.TrimSuffix(selectStr, ",")
+
+    idsStr1 := ""
+    for _, id := range cids1 {
+        idsStr1 += strconv.Itoa(id) + ","
+    }
+    idsStr1 = strings.TrimSuffix(idsStr1, ",")
+
+    idsStr2 := ""
+    for _, id := range cids2 {
+        idsStr2 += strconv.Itoa(id) + ","
+    }
+    idsStr2 = strings.TrimSuffix(idsStr2, ",")
+
+    idsStr3 := ""
+    for _, id := range cids3 {
+        idsStr3 += strconv.Itoa(id) + ","
+    }
+    idsStr3 = strings.TrimSuffix(idsStr3, ",")
+
+    sql := fmt.Sprintf(querySql4, selectStr, idsStr1, idsStr2, idsStr3)
+    return c.doQuery(sql)
+}
+
+func (c *MysqlClient) Query5(cids []int) (rows interface{}, err error) {
+    idsStr := ""
+    for _, id := range cids {
+        idsStr += strconv.Itoa(id) + ","
+    }
+    idsStr = strings.TrimSuffix(idsStr, ",")
+
+    sql := fmt.Sprintf(querySql5, idsStr)
+    return c.doQuery(sql)
+}
+
+func (c *MysqlClient) Query6(cids1 []int, cids2 []int, cids3 []int) (rows interface{}, err error) {
+    selectStr := ""
+    for _, f := range selectFields {
+        selectStr += "SUM(`" + f + "`),"
+    }
+    selectStr = strings.TrimSuffix(selectStr, ",")
+
+    idsStr1 := ""
+    for _, id := range cids1 {
+        idsStr1 += strconv.Itoa(id) + ","
+    }
+    idsStr1 = strings.TrimSuffix(idsStr1, ",")
+
+    idsStr2 := ""
+    for _, id := range cids2 {
+        idsStr2 += strconv.Itoa(id) + ","
+    }
+    idsStr2 = strings.TrimSuffix(idsStr2, ",")
+
+    idsStr3 := ""
+    for _, id := range cids3 {
+        idsStr3 += strconv.Itoa(id) + ","
+    }
+    idsStr3 = strings.TrimSuffix(idsStr3, ",")
+
+    sql := fmt.Sprintf(querySql6, selectStr, idsStr1, idsStr2, idsStr3)
+    return c.doQuery(sql)
+}
+
+func (c *MysqlClient) Query7(cids []int, date0, date1 int) (rows interface{}, err error) {
+    idsStr := ""
+    for _, id := range cids {
+        idsStr += strconv.Itoa(id) + ","
+    }
+    idsStr = strings.TrimSuffix(idsStr, ",")
+
+    sql := fmt.Sprintf(querySql2, idsStr, date0, date1)
+    return c.doQuery(sql)
+}
+
+func (c *MysqlClient) doQuery(sql string) (rows interface{}, err error) {
     if Debug {
         fmt.Println(sql)
     }
-    // fmt.Println("sql ", sql)
     res := c.db.Query(sql)
-    // fmt.Println(len(res.Rows))
     return res.Rows, res.Error
 }

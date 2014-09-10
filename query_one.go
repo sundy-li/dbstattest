@@ -15,7 +15,7 @@ import (
 var quickChan = make(chan bool, 1)
 var lock sync.Mutex
 
-var testTypes = []int{Query1, Query2, Query3}
+var testTypes = []int{Query1, Query2, Query3, Query4, Query5, Query6, Query7}
 var queryLimit int
 var goNumber int
 var debug bool
@@ -59,7 +59,8 @@ func main() {
         if boot {
             err = client.StartDB()
             if err != nil {
-                panic(err.Error())
+                fmt.Printf("StartDB %s error: %s", dbType, err.Error())
+                continue
             }
         }
 
@@ -78,7 +79,8 @@ func main() {
                 now := time.Now()
                 err = client.LoadData(realFile)
                 if err != nil {
-                    panic(err.Error())
+                    fmt.Printf("LoadData %s error: %s", dbType, err.Error())
+                    break
                 }
                 spendStr, _ := calTimeSpend(now)
                 fmt.Printf("Load data time spend: %s\n", spendStr)
@@ -90,7 +92,7 @@ func main() {
         if boot {
             err = client.StopDB()
             if err != nil {
-                panic(err.Error())
+                fmt.Printf("StopDB %s error: %s", dbType, err.Error())
             }
         }
         client.Destroy()
@@ -99,7 +101,7 @@ func main() {
 
 func queryDb(dbType string, f func() DbClient, initClient DbClient) {
     dataCount := initClient.DataCount()
-    fmt.Printf("==================\n%s, dataCount: %d, goroutine: %d, count: %d\n", dbType, dataCount, goNumber, queryLimit)
+    fmt.Printf("==================%s, dataCount: %d, goroutine: %d, count: %d\n", dbType, dataCount, goNumber, queryLimit)
     fmt.Printf("QType\ttotalTime\tavg\tqps\n")
 
     for _, testType := range testTypes {
@@ -135,7 +137,11 @@ func query(client DbClient, testType int) {
             break
         }
         now := time.Now()
-        TestQuery(client, testType)
+        err := TestQuery(client, testType)
+        if err != nil {
+            fmt.Printf("Query %d error: %s", testType, err.Error())
+            break
+        }
         addTime(now)
     }
     client.Destroy()

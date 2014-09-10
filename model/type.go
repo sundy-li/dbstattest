@@ -5,16 +5,21 @@ import (
 )
 
 const (
-    es         = "es"
-    mysql      = "mysql"
-    infinidb   = "infinidb"
-    infobright = "infobright"
+    es              = "es"
+    mysql           = "mysql"
+    infinidb        = "infinidb"
+    infinidb_single = "infinidb_single"
+    infobright      = "infobright"
 )
 
 const (
     Query1 = 1
     Query2 = 2
     Query3 = 3
+    Query4 = 4
+    Query5 = 5
+    Query6 = 6
+    Query7 = 7
 )
 
 func GetClientGen(dbType string) func() DbClient {
@@ -32,6 +37,10 @@ func GetClientGen(dbType string) func() DbClient {
         f = func() DbClient {
             return NewInifiniDBClient()
         }
+    case infinidb_single:
+        f = func() DbClient {
+            return NewInifiniDBSingleClient()
+        }
     case infobright:
         f = func() DbClient {
             return NewInfoBrightClient()
@@ -43,10 +52,9 @@ func GetClientGen(dbType string) func() DbClient {
     return f
 }
 
-func TestQuery(client DbClient, testType int) {
+func TestQuery(client DbClient, testType int) (err error) {
     count := 1000
     count2 := 100
-    var err error
     switch testType {
     case Query1:
         _, err = client.Query(GenCampIds(count))
@@ -58,7 +66,5 @@ func TestQuery(client DbClient, testType int) {
     default:
         panic(fmt.Sprintf("wrong test type: %d\n", testType))
     }
-    if err != nil {
-        panic(err.Error())
-    }
+    return
 }

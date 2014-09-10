@@ -2,6 +2,7 @@ package model
 
 import (
     "encoding/json"
+    "errors"
     "fmt"
 
     // "fmt"
@@ -47,15 +48,15 @@ func (c *ESClient) Destroy() {
 }
 
 func (c *ESClient) StartDB() error {
-    panic("Unsupported")
+    return errors.New("Unsupported")
 }
 
 func (c *ESClient) StopDB() error {
-    panic("Unsupported")
+    return errors.New("Unsupported")
 }
 
 func (c *ESClient) LoadData(fileName string) error {
-    panic("Unsupported")
+    return errors.New("Unsupported")
 }
 
 func (c *ESClient) InsertBatch(camps []Campaign) (count int64, err error) {
@@ -161,7 +162,7 @@ func (c *ESClient) Query(cids []int) (rows interface{}, err error) {
     // fmt.Println("RsAggCount", RsAggCount)
 
     if sr.ShardStatus.Failed > 0 {
-        panic(fmt.Sprintf("%v", sr.String()))
+        return nil, errors.New(fmt.Sprintf("%v", sr.String()))
     }
     return nil, err
 }
@@ -238,7 +239,7 @@ func (c *ESClient) Query2(cids []int, date0, date1 int) (rows interface{}, err e
     RsAggCount += len(b)
 
     if sr.ShardStatus.Failed > 0 {
-        panic(fmt.Sprintf("%v", sr.String()))
+        return nil, errors.New(fmt.Sprintf("%v", sr.String()))
     }
     // fmt.Println(res.Hits.Total)
     return nil, err
@@ -302,9 +303,25 @@ func (c *ESClient) Query3(cids []int, hours []int) (rows interface{}, err error)
     RsAggCount += len(b)
 
     if sr.ShardStatus.Failed > 0 {
-        panic(fmt.Sprintf("%v", sr.String()))
+        return nil, errors.New(fmt.Sprintf("%v", sr.String()))
     }
 
     // fmt.Println(res.Hits.Total)
     return nil, err
+}
+
+func (c *ESClient) Query4(cids1 []int, cids2 []int, cids3 []int) (rows interface{}, err error) {
+    return nil, errors.New("Unsupported")
+}
+
+func (c *ESClient) Query5(cids []int) (rows interface{}, err error) {
+    return nil, errors.New("Unsupported")
+}
+
+func (c *ESClient) Query6(cids1 []int, cids2 []int, cids3 []int) (rows interface{}, err error) {
+    return nil, errors.New("Unsupported")
+}
+
+func (c *ESClient) Query7(cids []int, date0, date1 int) (rows interface{}, err error) {
+    return nil, errors.New("Unsupported")
 }

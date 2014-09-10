@@ -48,7 +48,6 @@ func (c *InfiniDB) StopDB() error {
 
 func (c *InfiniDB) LoadData(fileName string) error {
     cmd := exec.Command("/usr/local/Calpont/bin/cpimport", "-m1", InfiniDBdatabase, "trend_campaign", fileName)
-    fmt.Println("/usr/local/Calpont/bin/cpimport", "-m1", InfiniDBdatabase, "trend_campaign", fileName)
     err := cmd.Run()
     time.Sleep(time.Minute)
     return err

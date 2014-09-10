@@ -92,8 +92,6 @@ func init() {
     }
     updates = strings.TrimSuffix(updates, ",")
     insertSql = strings.Replace(insertSql, "#UPDATES#", updates, 1)
-
-    // fmt.Printf("insertSql: %s\n", insertSql)
 }
 
 type Campaign map[string]interface{}
@@ -192,6 +190,10 @@ type DbClient interface {
     Query(cids []int) (rows interface{}, err error)
     Query2(cids []int, date0, date1 int) (rows interface{}, err error)
     Query3(cids []int, hours []int) (rows interface{}, err error)
+    Query4(cids1 []int, cids2 []int, cids3 []int) (rows interface{}, err error)
+    Query5(cids []int) (rows interface{}, err error)
+    Query6(cids1 []int, cids2 []int, cids3 []int) (rows interface{}, err error)
+    Query7(cids []int, date0, date1 int) (rows interface{}, err error)
 
     Init()
     Destroy()
