@@ -24,6 +24,7 @@ func (c *InfiniDBSingle) Init() {
     if Debug {
         fmt.Printf("%v,%v,%v,%v,%v\n", InfiniDBSinglehost, InfiniDBSingleport, InfiniDBSingledatabase, InfiniDBSingleusername, InfiniDBSinglepassword)
     }
+    c.initMysql()
 }
 
 func NewInifiniDBSingleClient() DbClient {

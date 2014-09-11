@@ -6,3 +6,7 @@ nohup /usr/bin/mysql-ib -p  -e "LOAD DATA INFILE 'aa' INTO TABLE trend_campaign 
 /data2/infinidb/data/bulk/data/import/trend_campaign.tbl
 
 LOAD DATA INFILE '/data2/infinidb/data/bulk/data/import/ibdata.csv' INTO TABLE trend_campaign FIELDS TERMINATED BY '|';
+
+
+go run query_one.go -db="memsql,infinidb,infobright" -go=20 -limit=1000 -data="1kw.csv,4kw.cs
+v,5kw.csv" -boot

@@ -8,7 +8,7 @@ import (
 )
 
 var (
-    InfoBrighthost     = "localhost"
+    InfoBrighthost     = "192.168.10.60"
     InfoBrightport     = 5029
     InfoBrightdatabase = "myib"
     InfoBrightusername = "root"
@@ -24,6 +24,7 @@ func (c *InfoBright) Init() {
     if Debug {
         fmt.Printf("%v,%v,%v,%v,%v\n", InfoBrighthost, InfoBrightport, InfoBrightdatabase, InfoBrightusername, InfoBrightpassword)
     }
+    c.initMysql()
 }
 
 func NewInfoBrightClient() DbClient {
