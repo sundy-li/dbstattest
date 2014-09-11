@@ -55,6 +55,7 @@ var selectFields = []string{
 var mysql_dataCountSql = "SELECT count(*) from trend_campaign"
 
 // 全指标-IN条件-Limit
+
 var mysql_querySql1 = "SELECT %s, campaign_id FROM trend_campaign WHERE campaign_id IN (%s) GROUP BY campaign_id LIMIT 20 OFFSET 0"
 
 // 全指标-IN+Range条件-Limit
